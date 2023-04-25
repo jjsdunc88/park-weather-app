@@ -1,12 +1,167 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <head>
+        <style>
+              body {
+      background-image: url('https://www.treehugger.com/thmb/2kYXj4KXChrqntcrQ_Xks0qIcLw=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/8860298334_509c5f9698_o-2fba9e1a26cc465bb9d4f9b659b2296d.jpg');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+        </style>
+      </head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Park Finder</title>
+    <title>Bulma Test</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 </head>
 <body>
-    
+  <!-- Title -->
+    <h1 class="is-size-1 py-6 title has-text-centered has-text-warning-dark">Park Finder</h1>
+
+    <body>
+        <div class="container">
+          <!-- Search bar -->
+          <div class="field mx-6">
+            <div class="control">
+              <input class="input" type="text" placeholder="Search Location">
+              <button class="button is-dark">Apply</button>
+              <button class="button is-outlined">Reset</button>
+            </div>
+          </div>
+
+<!-- Zip code -->
+          <button class="button" title="Disabled button" disabled>Zip Code</button>
+
+          <!-- Activity bar -->
+          <div class="dropdown is-hoverable pb-4 pl-3">
+            <div class="dropdown-trigger">
+              <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+                <span>Filter by Activity...</span>
+                <span class="icon is-small">
+                  <i class="fas fa-angle-down" aria-hidden="true"></i>
+                </span>
+              </button>
+            </div>
+            <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+              <div class="dropdown-content">
+                <div class="dropdown-item">
+                  <p>You can insert <strong>any type of content</strong> within the dropdown menu.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Status bar -->
+          <div class="dropdown is-hoverable pb-4 pl-3">
+            <div class="dropdown-trigger">
+              <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+                <span>Filter by Status...</span>
+                <span class="icon is-small">
+                  <i class="fas fa-angle-down" aria-hidden="true"></i>
+                </span>
+              </button>
+            </div>
+            <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+              <div class="dropdown-content">
+                <div class="dropdown-item">
+                  <p>You can insert <strong>any type of content</strong> within the dropdown menu.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Park bar -->
+          <div class="dropdown is-hoverable pb-4 pl-3">
+            <div class="dropdown-trigger">
+              <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+                <span>Filter by Park Name...</span>
+                <span class="icon is-small">
+                  <i class="fas fa-angle-down" aria-hidden="true"></i>
+                </span>
+              </button>
+            </div>
+            <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+              <div class="dropdown-content">
+                <div class="dropdown-item">
+                  <p>You can insert <strong>any type of content</strong> within the dropdown menu.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+      
+          <!-- Card container -->
+          <div class="columns">
+            <!-- Card 1 -->
+            <div class="column">
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <img src="https://via.placeholder.com/300" alt="Card 1">
+                  </figure>
+                </div>
+                <div class="card-content">
+                  <div class="content">
+                    <p>Card 1 content goes here.</p>
+                    <button class="button is-focused">Details</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+      
+            <!-- Card 2 -->
+            <div class="column">
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <img src="https://via.placeholder.com/300" alt="Card 2">
+                  </figure>
+                </div>
+                <div class="card-content">
+                  <div class="content">
+                    <p>Card 2 content goes here.</p>
+                    <button class="button is-focused">Details</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+      
+            <!-- Card 3 -->
+            <div class="column">
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <img src="https://via.placeholder.com/300" alt="Card 3">
+                  </figure>
+                </div>
+                <div class="card-content">
+                  <div class="content">
+                    <p>Card 3 content goes here.</p>
+                    <button class="button is-focused">Details</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </body>
+
+            <!-- Weather Forecast -->
+            <div class="columns is-centered">
+                <div class="column is-4">
+                  <div class="card">
+                    <div class="card-content">
+                      <div class="content">
+                        <p>Weather content goes here.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </body>          
 </body>
 </html>
