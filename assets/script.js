@@ -33,6 +33,11 @@ function getCity () {
         })       
 };
 
+const resetButton = document.querySelector("#resetButton");
+resetButton.addEventListener("click", function(){
+    const inputField = document.querySelector(".input");
+    inputField.value = "";
+})
 
 
 
