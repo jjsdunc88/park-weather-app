@@ -31,6 +31,7 @@ function getCity () {
         .then(function(data) {
             console.log(data);
             updateCard(data);
+            displayWeather(data.data[0].weatherInfo);
 
         })       
 };
@@ -39,7 +40,16 @@ const resetButton = document.querySelector("#resetButton");
 resetButton.addEventListener("click", function(){
     const inputField = document.querySelector(".input");
     inputField.value = "";
-})
+
+    const cardContent = document.querySelector("#cardOne .content");
+    cardContent.innerHTML = "Search Somethin :)";
+
+    const weatherContent = document.querySelector("#weatherCard .content");
+    weatherContent.innerHTML = "Search Somethin :)";
+
+    const cardImage = document.querySelector(".card-image img");
+    cardImage.src = "https://64.media.tumblr.com/tumblr_lvgbgeaoff1r03kk7o1_500.jpg";
+});
 
 function updateCard(data) {
     var parkName = data.data[0].fullName;
@@ -58,7 +68,11 @@ function updateCard(data) {
     `;
 }
 
-
+function displayWeather(weatherData) {
+    var weatherCard = document.querySelector("#weatherCard");
+    var content = weatherCard.querySelector(".content");
+    content.innerHTML = "<p>" + weatherData + "</p>";
+}
 
 
 console.log("test");
