@@ -22,15 +22,15 @@ function getCity() {
             console.log(randomPark);
             updateCard(randomPark);
             displayWeather(randomPark.weatherInfo);
-            getBeer(randomPark.addresses[0].city);
-
+            // getBeer(searchBar);
+            getBeer(randomPark.addresses[0].stateCode);
             // updateCard(data);
         })
 };
 
 // Returns Brewery locations by city.
 function getBeer(searchBar) {
-    var url = "http://beermapping.com/webservice/loccity/f82c35d11ba2db8be445456f47487b12/" + searchBar + "&s=json"
+    var url = "http://beermapping.com/webservice/locstate/f82c35d11ba2db8be445456f47487b12/" + searchBar + "&s=json"
     fetch(url)
         .then(function (response) {
             return response.json()
