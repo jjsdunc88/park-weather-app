@@ -18,12 +18,13 @@ function getCity() {
         })
         .then(function (data) {
             console.log(data);
+            randomPark = data.data[Math.floor(Math.random() * data.data.length)];
+            console.log(randomPark);
+            updateCard(randomPark);
+            displayWeather(randomPark.weatherInfo);
+            getBeer(randomPark.addresses[0].city);
 
-            updateCard(data);
-            displayWeather(data.data[0].weatherInfo);
-            getBeer(data.data[2].addresses[0].city);
-
-            updateCard(data);
+            // updateCard(data);
         })
 };
 
@@ -42,14 +43,14 @@ function getBeer(searchBar) {
 
 
 // Renders Park & Brewery data on display cards.
-function updateCard(data) {
-    var parkName = data.data[0].fullName;
-    var parkDescription = data.data[0].description;
+function updateCard(randomPark) {
+    var parkName = randomPark.fullName;
+    var parkDescription = randomPark.description;
 
     var cardImage = document.querySelector("#cardOne .card-image img");
     var cardContent = document.querySelector("#cardOne .card-content");
 
-    cardImage.src = data.data[0].images[0].url;
+    cardImage.src = randomPark.images[0].url;
     cardContent.innerHTML = `
     <div class = "content">
         <h3>${parkName}</h3>
