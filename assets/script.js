@@ -1,7 +1,7 @@
 // $(document).ready(function(){ 
 //     console.log("hello")
 
-//     var apikey = "fa8a706fcf011be6955a40353b9e2226"
+//     const apikey = "fa8a706fcf011be6955a40353b9e2226"
 
     
 //     function search (alchol){
@@ -19,9 +19,18 @@ console.log("howdy");
 
 // National Park Service API Key: 8fzgFBy23bOctVVOvssIxHSKu8vDZPKnUKcTNKfM
 
+
+console.log("howdy");
+var randomPark;
+var lat;
+var lon;
+
+// Targets "Apply" button, runs getCity function on click.
 document.querySelector("#applyButton").addEventListener("click", getCity);
 
-function getCity () {
+
+// Returns a National Park based on State intials input and intiates other functions.
+function getCity() {
     var searchBar = document.querySelector("#searchBar").value;
     var url = "https://developer.nps.gov/api/v1/parks?q=" + searchBar + "&api_key=8fzgFBy23bOctVVOvssIxHSKu8vDZPKnUKcTNKfM"
         fetch(url)
@@ -30,7 +39,8 @@ function getCity () {
         })
         .then(function(data) {
             console.log(data);
-        })       
+            return data;
+        })
 };
 
 // variable declarations
@@ -51,6 +61,48 @@ applyButton.addEventListener("click", function() {
       .then(function(data) {
         var forecast = data.forecast.forecastday;
   
+// Renders Park & Brewery data on display cards.
+function updateCard(randomPark) {
+    var parkName = randomPark.fullName;
+    var parkDescription = randomPark.description;
+
+    var cardImage = document.querySelector("#cardOne .card-image img");
+    var cardContent = document.querySelector("#cardOne .card-content");
+
+    cardImage.src = randomPark.images[0].url;
+    cardContent.innerHTML = `
+    <div class = "content">
+        <h3>${parkName}</h3>
+        <p>${parkDescription}</p>
+        <button class = "button is-focused">Details</button>
+    </div>
+    `;
+}
+
+// Displays general weather information for chosen park.
+function displayWeather(weatherData) {
+    var weatherCard = document.querySelector("#weatherCard");
+    var content = weatherCard.querySelector(".content");
+    content.innerHTML = "<p>" + weatherData + "</p>";
+}
+
+
+// Reset Button clears search bar field.
+const resetButton = document.querySelector("#resetButton");
+resetButton.addEventListener("click", function () {
+    const inputField = document.querySelector(".input");
+    inputField.value = "";
+
+    const cardContent = document.querySelector("#cardOne .content");
+    cardContent.innerHTML = "Search Somethin :)";
+
+    const weatherContent = document.querySelector("#weatherCard .content");
+    weatherContent.innerHTML = "Search Somethin :)";
+
+    const cardImage = document.querySelector(".card-image img");
+    cardImage.src = "https://64.media.tumblr.com/tumblr_lvgbgeaoff1r03kk7o1_500.jpg";
+});
+
         var cardContent = city + "Weather Forecast";
 //   Modify
         for ( var i= 0; i < forecast.length; i++) {
@@ -78,3 +130,20 @@ applyButton.addEventListener("click", function() {
   });
 
 
+// Reset Button clears search bar field.
+const resetButton = document.querySelector("#resetButton");
+resetButton.addEventListener("click", function () {
+    const inputField = document.querySelector(".input");
+    inputField.value = "";
+
+    const cardContent = document.querySelector("#cardOne .content");
+    cardContent.innerHTML = "Search Somethin :)";
+
+    const weatherContent = document.querySelector("#weatherCard .content");
+    weatherContent.innerHTML = "Search Somethin :)";
+
+    const cardImage = document.querySelector(".card-image img");
+    cardImage.src = "https://64.media.tumblr.com/tumblr_lvgbgeaoff1r03kk7o1_500.jpg";
+});
+
+});
