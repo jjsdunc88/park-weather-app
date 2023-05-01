@@ -1,6 +1,5 @@
 // National Park Service API Key: 8fzgFBy23bOctVVOvssIxHSKu8vDZPKnUKcTNKfM
-// Beer Mapping API Key: f82c35d11ba2db8be445456f47487b12
-// "http://beermapping.com/webservice/locstate/f82c35d11ba2db8be445456f47487b12/" + searchBar + "&s=json"
+
 
 console.log("howdy");
 var randomPark;
@@ -27,15 +26,14 @@ function getCity() {
             console.log(randomPark);
             updateCard(randomPark);
             displayWeather(randomPark.weatherInfo);
-            // getBeer(searchBar);
-            // getBeer(randomPark.addresses[0].stateCode);
             getBeer(lat, lon);
         })
 };
 
-// Returns Brewery locations by city.
+
+// Returns Brewery locations by latitude & longitude.
 function getBeer() {
-    var url = `https://api.openbrewerydb.org/v1/breweries?by_dist=${lat},${lon}&per_page=3`
+    var url = `https://api.openbrewerydb.org/v1/breweries?by_dist=${lat},${lon}&per_page=2`
     fetch(url)
         .then(function (response) {
             return response.json()
