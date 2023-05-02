@@ -43,7 +43,6 @@ function getCity() {
         })
 };
 
-// Array to hold brewery data for each search.
 
 
 
@@ -142,7 +141,6 @@ resetButton.addEventListener("click", function () {
    localStorage.clear();
    btnContainer.innerHTML = "";
 });
-
 
 
 
