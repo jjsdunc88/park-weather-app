@@ -1,22 +1,6 @@
-//$(document).ready(function(){ 
-     console.log("hello")
 
-     const apikey = "fa8a706fcf011be6955a40353b9e2226"
+let dataCards = document.getElementById("dataCards")
 
-     function search (alchol){
-         console.log("clicked")
-         fetch(
-             `https://beermapping.com/api/request/=${alcohol}&units=imperial&appid=${apikey}`   
-        ).then(function(response){
-             return response.json()
-         }).then(function(data){
-            console.log(data)
-         })
-    }
-//     // var beer = 
-
-
-console.log("howdy");
 
 // National Park Service API Key: 8fzgFBy23bOctVVOvssIxHSKu8vDZPKnUKcTNKfM
 
@@ -38,9 +22,36 @@ function getCity() {
         .then(function (response) {
             return response.json()
         })
+
         .then(function(data) {
+
+        .then(function (data) {
             console.log(data);
-            return data;
+            randomPark = data.data[Math.floor(Math.random() * data.data.length)];
+            lat = parseInt(randomPark.latitude);
+            lon = parseInt(randomPark.longitude);
+            console.log(randomPark);
+            updateCard(randomPark);
+            displayWeather(randomPark.weatherInfo);
+            getBeer(lat, lon);
+        })
+};
+
+var beerData= []
+// Returns Brewery locations by latitude & longitude.
+function getBeer() {
+    var url = `https://api.openbrewerydb.org/v1/breweries?by_dist=${lat},${lon}&per_page=2`
+    fetch(url)
+        .then(function (response) {
+            return response.json()
+        })
+        .then(function (data) {
+
+            console.log(data);
+            beerData.push(data)
+            renderBeerOne()
+            renderBeerTwo()
+            return beerData;
         })
 };
 
@@ -156,4 +167,19 @@ resetButton.addEventListener("click", function () {
 });
 */
 
+
 //});
+
+
+function renderBeerOne (){
+let beerNameOne = document.querySelector("#cardTwo p")
+beerNameOne.textContent=beerData[0][0].name
+console.log(beerData[0][0].name)
+}
+
+function renderBeerTwo () {
+    let beerNameTwo = document.querySelector("#cardThree p")
+    beerNameTwo.textContent=beerData[0][1].name
+    console.log(beerData[0][1].name)
+}
+
