@@ -97,7 +97,7 @@ function getRandomImg() {
     
     const myImageLibraryPath = 'assets/img/';
     const myImageLibrary = ['beer1.jpg','beer2.jpg','beer3.jpg','beer4.jpg','beer5.jpg','beer6.jpg','beer7.jpg','beer8.jpg','beer9.jpg','beer10.jpg'];
-    let myImage = myImageLibrary[Math.floor(Math.random * myImageLibrary.length)];
+    let myImage = myImageLibrary[Math.floor(Math.random() * myImageLibrary.length)];
     myImgSrc = `${myImageLibraryPath}${myImage}`;
     return myImgSrc;
 }
@@ -106,9 +106,18 @@ function renderBeerOne() {
     const beerNameOne = document.querySelector("#cardTwo p")
     const myImgSrc = document.querySelector('#cardTwo figure')
     myImage = getRandomImg();
+    console.log(myImage)
     myImgSrc.innerHTML= `<img src="${myImage}" alt="Card 2">`;
-    beerNameOne.textContent = beerData[0][0].name
-    console.log(beerData[0][0].name)
+    beerNameOne.textContent = `${beerData[0][0].name}
+    
+    
+    ${beerData[0][0].street}
+    ${beerData[0][0].city}
+    ${beerData[0][0].state}
+    ${beerData[0][0].website_url}
+    `
+    
+    console.log(beerData[0][0])
 }
 
 function renderBeerTwo() {
@@ -116,7 +125,16 @@ function renderBeerTwo() {
     const myImgSrc = document.querySelector('#cardThree figure')
     myImage = getRandomImg();
     myImgSrc.innerHTML= `<img src="${myImage}" alt="Card 3">`;
-    beerNameTwo.textContent = beerData[0][1].name
-    console.log(beerData[0][1].name)
+    beerNameTwo.textContent = `${beerData[0][1].name}
+
+
+
+    ${beerData[0][0].street}
+    ${beerData[0][0].city}
+    ${beerData[0][0].state}
+    ${beerData[0][0].website_url}
+    `
+
+    console.log(beerData[0][1])
 }
 
