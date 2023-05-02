@@ -32,7 +32,7 @@ function getCity() {
         })
 };
 
-var beerData= []
+var beerData = []
 // Returns Brewery locations by latitude & longitude.
 function getBeer() {
     var url = `https://api.openbrewerydb.org/v1/breweries?by_dist=${lat},${lon}&per_page=2`
@@ -83,26 +83,40 @@ resetButton.addEventListener("click", function () {
     inputField.value = "";
 
     const cardContent = document.querySelector("#cardOne .content");
-    cardContent.innerHTML = "Search Somethin :)";
+    cardContent.innerHTML = "Search Something :)";
 
     const weatherContent = document.querySelector("#weatherCard .content");
-    weatherContent.innerHTML = "Search Somethin :)";
+    weatherContent.innerHTML = "Search Something :)";
 
     const cardImage = document.querySelector(".card-image img");
     cardImage.src = "https://64.media.tumblr.com/tumblr_lvgbgeaoff1r03kk7o1_500.jpg";
 });
 
-
-
-
-function renderBeerOne (){
-let beerNameOne = document.querySelector("#cardTwo p")
-beerNameOne.textContent=beerData[0][0].name
-console.log(beerData[0][0].name)
+function getRandomImg() {
+    let myImgSrc;
+    
+    const myImageLibraryPath = 'assets/img/';
+    const myImageLibrary = ['beer1.jpg','beer2.jpg','beer3.jpg','beer4.jpg','beer5.jpg','beer6.jpg','beer7.jpg','beer8.jpg','beer9.jpg','beer10.jpg'];
+    let myImage = myImageLibrary[Math.floor(Math.random * myImageLibrary.length)];
+    myImgSrc = `${myImageLibraryPath}${myImage}`;
+    return myImgSrc;
 }
 
-function renderBeerTwo () {
+function renderBeerOne() {
+    const beerNameOne = document.querySelector("#cardTwo p")
+    const myImgSrc = document.querySelector('#cardTwo figure')
+    myImage = getRandomImg();
+    myImgSrc.innerHTML= `<img src="${myImage}" alt="Card 2">`;
+    beerNameOne.textContent = beerData[0][0].name
+    console.log(beerData[0][0].name)
+}
+
+function renderBeerTwo() {
     let beerNameTwo = document.querySelector("#cardThree p")
-    beerNameTwo.textContent=beerData[0][1].name
+    const myImgSrc = document.querySelector('#cardThree figure')
+    myImage = getRandomImg();
+    myImgSrc.innerHTML= `<img src="${myImage}" alt="Card 3">`;
+    beerNameTwo.textContent = beerData[0][1].name
     console.log(beerData[0][1].name)
 }
+
