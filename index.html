@@ -19,11 +19,11 @@
     <title>Park & Brew Finder</title>
 </head>
 <body>
-    <h1 class="is-size-1 py-6 title has-text-centered has-text-warning-dark">Park & Brew Finder</h1>
+    <h1 class="is-size-1 py-6 title has-text-centered has-text-warning-dark">Park Finder</h1>
 
     <body>
       <!-- Search bar -->
-        <form id="searchBar" class="container">
+        <div id="searchBarDiv" class="container">
           <div class="field mr-auto">
             <div class="control">
               <input id="searchBar" class="input" type="text" placeholder="Enter State Initials">
@@ -33,10 +33,10 @@
           </div>
 
           <!-- Zip code -->
-          <!-- <button id="zipCode" class="button" title="Disabled button" disabled>Zip Code</button> -->
+          <button id="zipCode" class="button" title="Disabled button" disabled>Zip Code</button>
 
           <!-- Activity bar -->
-          <!-- <div id="statusBar" class="dropdown is-hoverable pb-4 pl-3">
+          <div id="statusBar" class="dropdown is-hoverable pb-4 pl-3">
             <div class="dropdown-trigger">
               <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
                 <span>Filter by Activity...</span>
@@ -52,10 +52,10 @@
                 </div>
               </div>
             </div>
-          </div> -->
+          </div>
 
           <!-- Status bar -->
-          <!-- <div class="dropdown is-hoverable pb-4 pl-3">
+          <div id="statusBar" class="dropdown is-hoverable pb-4 pl-3">
             <div class="dropdown-trigger">
               <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
                 <span>Filter by Status...</span>
@@ -71,10 +71,10 @@
                 </div>
               </div>
             </div>
-          </div> -->
+          </div>
 
           <!-- Park bar -->
-          <!-- <div id="parkBar" class="dropdown is-hoverable pb-4 pl-3">
+          <div id="parkBar" class="dropdown is-hoverable pb-4 pl-3">
             <div class="dropdown-trigger">
               <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
                 <span>Filter by Park Name...</span>
@@ -90,7 +90,7 @@
                 </div>
               </div>
             </div>
-          </div> -->
+          </div>
       
           <!-- Card container -->
           <div id="dataCards" class="columns">
@@ -104,7 +104,7 @@
                 </div>
                 <div class="card-content">
                   <div class="content">
-                    <!-- <p>if we want to add placeholder text</p> -->
+                    <p>Card 1 content goes here.</p>
                     <button class="button is-focused">Details</button>
                   </div>
                 </div>
@@ -121,7 +121,7 @@
                 </div>
                 <div class="card-content">
                   <div class="content">
-                    <!-- <p>if we want to add placeholder text</p> -->
+                    <p>Card 2 content goes here.</p>
                     <button class="button is-focused">Details</button>
                   </div>
                 </div>
@@ -138,7 +138,7 @@
                 </div>
                 <div class="card-content">
                   <div class="content">
-                   <!-- <p>if we want to add placeholder text</p> -->
+                    <p>Card 3 content goes here.</p>
                     <button class="button is-focused">Details</button>
                   </div>
                 </div>
@@ -174,7 +174,7 @@
                   is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>. Check out the collaborators on <a href="https://github.com/jjsdunc88/park-weather-app">GitHub!</a> 
                 </p>
               </div>
-            </footer>
+            </div>   
     <script src="./assets/script.js"></script>
 </body>
 </html>
