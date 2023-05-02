@@ -22,6 +22,32 @@ function getCity() {
         })
         .then(function (data) {
             console.log(data);
+            if (data.data.length > 0){
+                var park = data.data[0];
+                var parkName = park.fullName;
+                var parkDescription = park.description;
+                var cardImage = document.querySelector("#cardOne .card-image img");
+                var cardContent = document.querySelector("#cardOne .card-content");
+                cardImage.src = park.images[0].url;
+                cardContent.innerHTML = `
+                <div class="content">
+                <h3>${parkName}</h3>
+                <button class="button is-focused">Details</button>
+                </div>
+                `;
+
+                displayWeather(park.weatherInfo);
+
+                var lat = park.latitude;
+                var lon = park.longitude;
+                getBeer(lat, lon);
+            } else {
+                alert("No national parks found for " + searchBar);
+            }
+        })
+        .catch(function(error) {
+            console.log(error)
+        });
             randomPark = data.data[Math.floor(Math.random() * data.data.length)];
             lat = parseInt(randomPark.latitude);
             lon = parseInt(randomPark.longitude);
@@ -29,8 +55,8 @@ function getCity() {
             updateCard(randomPark);
             displayWeather(randomPark.weatherInfo);
             getBeer(lat, lon);
-        })
-};
+       }
+  
 
 var beerData= []
 // Returns Brewery locations by latitude & longitude.
