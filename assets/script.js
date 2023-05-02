@@ -12,16 +12,14 @@ if (localStorage.getItem("history")) {
     historyArr = JSON.parse(localStorage.getItem("history"))
 }
 
+// Renders State searches on page as re-searchable buttons
 renderButtons(historyArr);
-
-
-
-
 
 
 
 // Targets "Apply" button, runs getCity function on click.
 document.querySelector("#applyButton").addEventListener("click", getCity);
+
 
 
 // Returns a National Park based on State intials input and intiates other functions.
@@ -44,8 +42,11 @@ function getCity() {
         })
 };
 
+// Array to hold brewery data for each search.
 var beerData = []
-// Returns Brewery locations by latitude & longitude.
+
+
+// Returns Brewery locations by latitude & longitude, runs Beer Card render functions.
 function getBeer() {
     var url = `https://api.openbrewerydb.org/v1/breweries?by_dist=${lat},${lon}&per_page=2`
     fetch(url)
