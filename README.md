@@ -2,7 +2,7 @@
 
 ## Description 
 
-This project was a collaborative work among student developers. We wanted to create an application that would help the user find new places in nature to explore and new locales to experience. The application allows the user to enter any US State initials and search the National Park Service register to return a random State Park or Historic Site along with two local breweries. This app is useful in providing ideas for different places to visit. This concept allows the user a macro perspective of their experience rather than a focus on minute details.
+This project was a collaborative work among student developers. We wanted to create an application that would help the user find new places in nature to explore and new locales to experience. The application allows the user to enter any US State initials and search the National Park Service register to return a random State Park or Historic Site along with two local breweries. This app is useful for providing ideas for different places to visit. This concept allows the user a macro perspective of their experience rather than a focus on minute detail.
 
 We chose the CSS Framework Bulma because it is lightweight and platform independent with good documentation support. Both the National Park Service API and the Open Brewing DB API were chosen due to reliability, good documentation and ease of use.
 
