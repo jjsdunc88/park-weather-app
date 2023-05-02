@@ -18,6 +18,17 @@ In the future, some features we'd like to implement would be additional search p
 [Click here for live website](https://jjsdunc88.github.io/park-weather-app/)
 
 
+## Development Team
+
+[Luke Antonello](https://github.com/l-antonello)
+
+[John Dawson](https://github.com/MilkyRamen)
+
+[Jake Duncan](https://github.com/jjsdunc88)
+
+[Yandra Kamberaj](https://github.com/yankamb444)
+
+
 ## Credits
 
 -BootCamp Tutor Andres Long
