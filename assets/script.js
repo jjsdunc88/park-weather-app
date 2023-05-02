@@ -3,7 +3,8 @@ let dataCards = document.getElementById("dataCards")
 var randomPark;
 var lat;
 var lon;
-
+const btnContainer = document.getElementById("statusBar");
+var beerData = []
 
 
 // Local Storage Array
@@ -42,8 +43,7 @@ function getCity() {
         })
 };
 
-// Array to hold brewery data for each search.
-var beerData = []
+
 
 
 // Returns Brewery locations by latitude & longitude, runs Beer Card render functions.
@@ -82,14 +82,29 @@ function updateCard(randomPark) {
 }
 
 
-// Renders Brewery One info on Card One
+
+// Loads a random picture onto beer cards.
+const picArray = ["./assets/brewimages/brewone.jpg","./assets/brewimages/brewtwo.jpg","./assets/brewimages/brewthree.jpg","./assets/brewimages/brewfour.jpg","./assets/brewimages/brewfive.jpg","./assets/brewimages/brewsix.jpg"];
+  
+let randomPicture = document.querySelector("#imgTwo");
+let randomIndex = Math.floor(Math.random() * picArray.length);
+randomPicture.src = `${picArray[randomIndex]}`;
+
+let randomPictureTwo = document.querySelector("#imgThree");
+  let randomIndexTwo = Math.floor(Math.random() * picArray.length);
+  randomPictureTwo.src = `${picArray[randomIndexTwo]}`;
+
+
+
+
+// Renders Brewery One info on Card Two.
 function renderBeerOne() {
     let beerNameOne = document.querySelector("#cardTwo p")
     beerNameOne.textContent = beerData[0][0].name
     console.log(beerData[0][0].name)
 }
 
-// Renders Brewery Two info on Card Two
+// Renders Brewery Two info on Card Three.
 function renderBeerTwo() {
     let beerNameTwo = document.querySelector("#cardThree p")
     beerNameTwo.textContent = beerData[0][1].name
@@ -121,14 +136,17 @@ resetButton.addEventListener("click", function () {
 
     const cardImage = document.querySelector(".card-image img");
     cardImage.src = "https://64.media.tumblr.com/tumblr_lvgbgeaoff1r03kk7o1_500.jpg";
-});
 
+   localStorage.removeItem("history")
+   localStorage.clear();
+   btnContainer.innerHTML = "";
+});
 
 
 
 // Creates buttons based on search history.
 function renderButtons(arr) {
-    const btnContainer = document.getElementById("statusBar");
+    
     btnContainer.innerHTML = "";
 
     for (i = 0; i < arr.length; i++) {

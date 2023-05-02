@@ -17,6 +17,7 @@
 
     <title>Park & Brew Finder</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
     <h1 class="is-size-1 py-6 title has-text-centered has-text-warning-dark">Park & Brew Finder</h1>
@@ -95,7 +96,7 @@
           <!-- Card container -->
           <div id="dataCards" class="columns">
             <!-- Card 1 -->
-            <div id="cardOne" class="column">
+            <div hidden id="cardOne" class="column hideCard" >
               <div class="card is-size-1-mobile">
                 <div class="card-image">
                   <figure class="image is-4by3">
@@ -112,11 +113,11 @@
             </div>
       
             <!-- Card 2 -->
-            <div id="cardTwo" class="column">
+            <div hidden id="cardTwo" class="column hideCard">
               <div class="card is-size-1-mobile">
                 <div class="card-image">
-                  <figure class="image is-4by3">
-                    <img src="https://via.placeholder.com/300" alt="Card 2">
+                  <figure id="cardTwo" class="image is-4by3">   
+                    <img id="imgTwo" src="https://via.placeholder.com/300" alt="Card 2">
                   </figure>
                 </div>
                 <div class="card-content">
@@ -129,11 +130,11 @@
             </div>
       
             <!-- Card 3 -->
-            <div id="cardThree" class="column">
+            <div hidden id="cardThree" class="column hideCard">
               <div class="card is-size-1-mobile">
                 <div class="card-image">
                   <figure class="image is-4by3">
-                    <img src="https://via.placeholder.com/300" alt="Card 3">
+                    <img id="imgThree" src="https://via.placeholder.com/300" alt="Card 3">
                   </figure>
                 </div>
                 <div class="card-content">
