@@ -11,7 +11,7 @@ var lat;
 var lon;
 
 // Targets "Apply" button, runs getCity function on click.
-//document.querySelector("#applyButton").addEventListener("click", getCity);
+document.querySelector("#applyButton").addEventListener("click", getCity);
 
 
 // Returns a National Park based on State intials input and intiates other functions.
@@ -23,7 +23,7 @@ function getCity() {
             return response.json()
         })
 
-        .then(function(data) {
+        // .then(function(data) {
 
         .then(function (data) {
             console.log(data);
@@ -35,6 +35,7 @@ function getCity() {
             displayWeather(randomPark.weatherInfo);
             getBeer(lat, lon);
         })
+        
 };
 
 var beerData= []
@@ -83,7 +84,7 @@ applyButton.addEventListener("click", function(event) {
         //   Modify
         for ( var i= 0; i < forecast.length; i++) {
           var date = forecast[i].date;
-          var weatherIcon = forecast[i].day.condition.icon;
+        //   var weatherIcon = forecast[i].day.condition.icon;
           var weatherDescription = forecast[i].day.condition.text;
           var highTemp = forecast[i].day.maxtemp_f;
           var lowTemp = forecast[i].day.mintemp_f;
@@ -105,6 +106,8 @@ applyButton.addEventListener("click", function(event) {
         //   });
     });
 
+// CSS to make the text white
+weatherCard.style.color = "white";
   
 // Renders Park & Brewery data on display cards.
 function updateCard(randomPark) {
@@ -148,29 +151,6 @@ resetButton.addEventListener("click", function () {
     cardImage.src = "https://64.media.tumblr.com/tumblr_lvgbgeaoff1r03kk7o1_500.jpg";
 });
 
-
-/*
-// Reset Button clears search bar field.
-const resetButton = document.querySelector("#resetButton");
-resetButton.addEventListener("click", function () {
-    const inputField = document.querySelector(".input");
-    inputField.value = "";
-
-    const cardContent = document.querySelector("#cardOne .content");
-    cardContent.innerHTML = "Search Somethin :)";
-
-    const weatherContent = document.querySelector("#weatherCard .content");
-    weatherContent.innerHTML = "Search Somethin :)";
-
-    const cardImage = document.querySelector(".card-image img");
-    cardImage.src = "https://64.media.tumblr.com/tumblr_lvgbgeaoff1r03kk7o1_500.jpg";
-});
-*/
-
-
-//});
-
-
 function renderBeerOne (){
 let beerNameOne = document.querySelector("#cardTwo p")
 beerNameOne.textContent=beerData[0][0].name
@@ -182,4 +162,3 @@ function renderBeerTwo () {
     beerNameTwo.textContent=beerData[0][1].name
     console.log(beerData[0][1].name)
 }
-
