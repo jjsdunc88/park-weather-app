@@ -1,17 +1,18 @@
-// $(document).ready(function(){ 
-//     console.log("hello")
+//$(document).ready(function(){ 
+     console.log("hello")
 
-//     const apikey = "fa8a706fcf011be6955a40353b9e2226"
+     const apikey = "fa8a706fcf011be6955a40353b9e2226"
 
-    
-//     function search (alchol){
-//         console.log("clicked")
-//         fetch(
-//             `https://beermapping.com/api/request/=${alcohol}&units=imperial&appid=${apikey}`
-//         ).then(function(response){
-//             return response.json()
-//         }).then(function(data){
-//     console.log(data)
+     function search (alchol){
+         console.log("clicked")
+         fetch(
+             `https://beermapping.com/api/request/=${alcohol}&units=imperial&appid=${apikey}`   
+        ).then(function(response){
+             return response.json()
+         }).then(function(data){
+            console.log(data)
+         })
+    }
 //     // var beer = 
 
 
@@ -26,7 +27,7 @@ var lat;
 var lon;
 
 // Targets "Apply" button, runs getCity function on click.
-document.querySelector("#applyButton").addEventListener("click", getCity);
+//document.querySelector("#applyButton").addEventListener("click", getCity);
 
 
 // Returns a National Park based on State intials input and intiates other functions.
@@ -46,20 +47,53 @@ function getCity() {
 // variable declarations
 var apiKey = "69550612ac9d43328d7234409232504";
 var weatherCard = document.getElementById("weatherCard");
-var searchBar = document.getElementById("searchBar");
 var applyButton = document.getElementById("applyButton");
+var searchBar = document.getElementById("searchBar");
 
 // search form
-applyButton.addEventListener("click", function() {
-    var city = searchBar.value;
+applyButton.addEventListener("click", function(event) {
+    event.preventDefault();
+    console.log('Click...');
+    console.log('Event Obj', event.target.previousElementSibling.value);
+    //var city = document.getElementById("searchBar").value;
+    var city =  event.target.previousElementSibling.value;
+    console.log('City: ', city);
+
 
 //   Create API fetch
-    fetch("https://api.weatherapi.com/v1/forecast.json?key=" + apiKey + "&q=" + city + "&days=3")
+    fetch("https://api.weatherapi.com/v1/forecast.json?key=" + apiKey + "&q=" + city + "&days=5")
       .then(function(response) {
         return response.json();
-      })
-      .then(function(data) {
+    })
+    .then(function(data) {
+        console.log("Data: ", data);
         var forecast = data.forecast.forecastday;
+        var cardContent = city + " 5-day Weather Forecast";
+        //   Modify
+        for ( var i= 0; i < forecast.length; i++) {
+          var date = forecast[i].date;
+          var weatherIcon = forecast[i].day.condition.icon;
+          var weatherDescription = forecast[i].day.condition.text;
+          var highTemp = forecast[i].day.maxtemp_f;
+          var lowTemp = forecast[i].day.mintemp_f;
+        //  Append 
+          cardContent += "<div class='forecastDay'>" +
+            "<p><strong>" + date + "</strong></p>" +
+            // "<img src='" + weatherIcon + "' alt='" + weatherDescription + "'/>" +
+            "<p><strong>Weather:</strong> " + weatherDescription + "</p>" +
+            "<p><strong>High Temp:</strong> " + highTemp + "°F</p>" +
+            "<p><strong>Low Temp:</strong> " + lowTemp + "°F</p>" +
+            "</div>";
+
+        }
+        weatherCard.innerHTML = cardContent;
+        })
+        //   .catch(function(error) {
+        //     console.error(error);
+        //     weatherCard.innerHTML = "<h2>Error loading weather forecast</h2>";
+        //   });
+    });
+
   
 // Renders Park & Brewery data on display cards.
 function updateCard(randomPark) {
@@ -103,33 +137,8 @@ resetButton.addEventListener("click", function () {
     cardImage.src = "https://64.media.tumblr.com/tumblr_lvgbgeaoff1r03kk7o1_500.jpg";
 });
 
-        var cardContent = city + "Weather Forecast";
-//   Modify
-        for ( var i= 0; i < forecast.length; i++) {
-          var date = forecast[i].date;
-          var weatherIcon = forecast[i].day.condition.icon;
-          var weatherDescription = forecast[i].day.condition.text;
-          var highTemp = forecast[i].day.maxtemp_f;
-          var lowTemp = forecast[i].day.mintemp_f;
-//  Append 
-          cardContent += "<div class='forecastDay'>" +
-            "<p><strong>" + date + "</strong></p>" +
-            "<img src='" + weatherIcon + "' alt='" + weatherDescription + "'/>" +
-            "<p><strong>Weather:</strong> " + weatherDescription + "</p>" +
-            "<p><strong>High Temp:</strong> " + highTemp + "°F</p>" +
-            "<p><strong>Low Temp:</strong> " + lowTemp + "°F</p>" +
-            "</div>";
-        }
-  
-        weatherCard.innerHTML = cardContent;
-      })
-    //   .catch(function(error) {
-    //     console.error(error);
-    //     weatherCard.innerHTML = "<h2>Error loading weather forecast</h2>";
-    //   });
-  });
 
-
+/*
 // Reset Button clears search bar field.
 const resetButton = document.querySelector("#resetButton");
 resetButton.addEventListener("click", function () {
@@ -145,5 +154,6 @@ resetButton.addEventListener("click", function () {
     const cardImage = document.querySelector(".card-image img");
     cardImage.src = "https://64.media.tumblr.com/tumblr_lvgbgeaoff1r03kk7o1_500.jpg";
 });
+*/
 
-});
+//});
