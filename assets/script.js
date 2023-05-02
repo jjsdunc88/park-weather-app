@@ -1,12 +1,24 @@
+// Global variables
 let dataCards = document.getElementById("dataCards")
-
-// National Park Service API Key: 8fzgFBy23bOctVVOvssIxHSKu8vDZPKnUKcTNKfM
-
-
-console.log("howdy");
 var randomPark;
 var lat;
 var lon;
+
+
+
+// Local Storage Array
+var historyArr = [];
+if (localStorage.getItem("history")) {
+    historyArr = JSON.parse(localStorage.getItem("history"))
+}
+
+renderButtons(historyArr);
+
+
+
+
+
+
 
 // Targets "Apply" button, runs getCity function on click.
 document.querySelector("#applyButton").addEventListener("click", getCity);
@@ -32,7 +44,7 @@ function getCity() {
         })
 };
 
-var beerData= []
+var beerData = []
 // Returns Brewery locations by latitude & longitude.
 function getBeer() {
     var url = `https://api.openbrewerydb.org/v1/breweries?by_dist=${lat},${lon}&per_page=2`
@@ -50,7 +62,7 @@ function getBeer() {
 };
 
 
-// Renders Park & Brewery data on display cards.
+// Renders Park info on Card One.
 function updateCard(randomPark) {
     var parkName = randomPark.fullName;
     var parkDescription = randomPark.description;
@@ -68,12 +80,30 @@ function updateCard(randomPark) {
     `;
 }
 
+
+// Renders Brewery One info on Card One
+function renderBeerOne() {
+    let beerNameOne = document.querySelector("#cardTwo p")
+    beerNameOne.textContent = beerData[0][0].name
+    console.log(beerData[0][0].name)
+}
+
+// Renders Brewery Two info on Card Two
+function renderBeerTwo() {
+    let beerNameTwo = document.querySelector("#cardThree p")
+    beerNameTwo.textContent = beerData[0][1].name
+    console.log(beerData[0][1].name)
+}
+
+
+
 // Displays general weather information for chosen park.
 function displayWeather(weatherData) {
     var weatherCard = document.querySelector("#weatherCard");
     var content = weatherCard.querySelector(".content");
     content.innerHTML = "<p>" + weatherData + "</p>";
 }
+
 
 
 // Reset Button clears search bar field.
@@ -95,14 +125,32 @@ resetButton.addEventListener("click", function () {
 
 
 
-function renderBeerOne (){
-let beerNameOne = document.querySelector("#cardTwo p")
-beerNameOne.textContent=beerData[0][0].name
-console.log(beerData[0][0].name)
+// Creates buttons based on search history.
+function renderButtons(arr) {
+    const btnContainer = document.getElementById("statusBar");
+    btnContainer.innerHTML = "";
+
+    for (i = 0; i < arr.length; i++) {
+        const newBtn = document.createElement("button");
+        newBtn.textContent = arr[i]
+        newBtn.addEventListener("click", function (e) {
+            e.preventDefault()
+
+            var cityIn = e.target.textContent;
+            getCity(cityIn)
+        })
+        btnContainer.appendChild(newBtn);
+    }
 }
 
-function renderBeerTwo () {
-    let beerNameTwo = document.querySelector("#cardThree p")
-    beerNameTwo.textContent=beerData[0][1].name
-    console.log(beerData[0][1].name)
-}
+
+// Event Listener for State Initals input form, sets local storage.
+document.getElementById("applyButton").addEventListener("click", function (e) {
+    e.preventDefault();
+
+    var cityIn = document.getElementById("searchBar").value;
+    historyArr.push(cityIn)
+    localStorage.setItem("history", JSON.stringify(historyArr));
+    renderButtons(historyArr)
+    getCity(cityIn)
+})
