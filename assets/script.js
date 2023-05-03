@@ -6,7 +6,6 @@ var lon;
 const btnContainer = document.getElementById("statusBar");
 var beerData = []
 
-
 // Local Storage Array
 var historyArr = [];
 if (localStorage.getItem("history")) {
@@ -82,8 +81,6 @@ function updateCard(randomPark) {
     </div>
     `;
 }
-
-
 
 // Loads a random picture onto beer cards.
 const picArray = ["./assets/brewimages/brewone.jpg","./assets/brewimages/brewtwo.jpg","./assets/brewimages/brewthree.jpg","./assets/brewimages/brewfour.jpg","./assets/brewimages/brewfive.jpg","./assets/brewimages/brewsix.jpg"];
@@ -175,9 +172,9 @@ function renderBeerTwo() {
     myImage = getRandomImg();
     myImgSrc.innerHTML= `<img src="${myImage}" alt="Card 3">`;
     beerNameTwo.textContent = `${beerData[0][1].name}, 
-    ${beerData[0][0].street},
-    ${beerData[0][0].city},
-    ${beerData[0][0].state},
+    ${beerData[0][1].street},
+    ${beerData[0][1].city},
+    ${beerData[0][1].state},
 
     `
     document.querySelector("#cardThree a").setAttribute("href",`${beerData[0][1].website_url}`)
