@@ -82,19 +82,19 @@ function updateCard(randomPark) {
 }
 
 
-// Renders Brewery One info on Card One
-function renderBeerOne() {
-    let beerNameOne = document.querySelector("#cardTwo p")
-    beerNameOne.textContent = beerData[0][0].name
-    console.log(beerData[0][0].name)
-}
+// // Renders Brewery One info on Card One
+// function renderBeerOne() {
+//     let beerNameOne = document.querySelector("#cardTwo p")
+//     beerNameOne.textContent = beerData[0][0].name
+//     console.log(beerData[0][0].name)
+// }
 
-// Renders Brewery Two info on Card Two
-function renderBeerTwo() {
-    let beerNameTwo = document.querySelector("#cardThree p")
-    beerNameTwo.textContent = beerData[0][1].name
-    console.log(beerData[0][1].name)
-}
+// // Renders Brewery Two info on Card Two
+// function renderBeerTwo() {
+//     let beerNameTwo = document.querySelector("#cardThree p")
+//     beerNameTwo.textContent = beerData[0][1].name
+//     console.log(beerData[0][1].name)
+// }
 
 
 
@@ -141,7 +141,8 @@ function renderButtons(arr) {
             getCity(cityIn)
         })
         btnContainer.appendChild(newBtn);
-    }
+    }}
+
 function getRandomImg() {
     let myImgSrc;
     
@@ -158,16 +159,30 @@ function renderBeerOne() {
     myImage = getRandomImg();
     console.log(myImage)
     myImgSrc.innerHTML= `<img src="${myImage}" alt="Card 2">`;
-    beerNameOne.textContent = `${beerData[0][0].name}
-    
-    
-    ${beerData[0][0].street}
-    ${beerData[0][0].city}
-    ${beerData[0][0].state}
-    ${beerData[0][0].website_url}
+    beerNameOne.textContent = `${beerData[0][0].name}, apples
+    ${beerData[0][0].street},
+    ${beerData[0][0].city},
+    ${beerData[0][0].state},
     `
+    document.querySelector("#cardTwo a").setAttribute("href",`${beerData[0][0].website_url}`)
     
     console.log(beerData[0][0])
+}
+
+function renderBeerTwo() {
+    let beerNameTwo = document.querySelector("#cardThree p")
+    const myImgSrc = document.querySelector('#cardThree figure')
+    myImage = getRandomImg();
+    myImgSrc.innerHTML= `<img src="${myImage}" alt="Card 3">`;
+    beerNameTwo.textContent = `${beerData[0][1].name}, 
+    ${beerData[0][0].street},
+    ${beerData[0][0].city},
+    ${beerData[0][0].state},
+
+    `
+    document.querySelector("#cardThree a").setAttribute("href",`${beerData[0][1].website_url}`)
+
+    console.log(beerData[0][1])
 }
 
 
@@ -182,21 +197,4 @@ document.getElementById("applyButton").addEventListener("click", function (e) {
     getCity(cityIn)
 })
 
-function renderBeerTwo() {
-    let beerNameTwo = document.querySelector("#cardThree p")
-    const myImgSrc = document.querySelector('#cardThree figure')
-    myImage = getRandomImg();
-    myImgSrc.innerHTML= `<img src="${myImage}" alt="Card 3">`;
-    beerNameTwo.textContent = `${beerData[0][1].name}
-
-
-
-    ${beerData[0][0].street}
-    ${beerData[0][0].city}
-    ${beerData[0][0].state}
-    ${beerData[0][0].website_url}
-    `
-
-    console.log(beerData[0][1])
-}
 
