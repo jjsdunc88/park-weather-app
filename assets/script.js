@@ -44,7 +44,8 @@ function getCity() {
         
 };
 
-
+// Array to hold brewery data for each search.
+var beerData  = []
 
 
 // Returns Brewery locations by latitude & longitude, runs Beer Card render functions.
@@ -96,31 +97,12 @@ let randomPictureTwo = document.querySelector("#imgThree");
   randomPictureTwo.src = `${picArray[randomIndexTwo]}`;
 
 
-
-
-// Renders Brewery One info on Card Two.
-function renderBeerOne() {
-    let beerNameOne = document.querySelector("#cardTwo p")
-    beerNameOne.textContent = beerData[0][0].name
-    console.log(beerData[0][0].name)
-}
-
-// Renders Brewery Two info on Card Three.
-function renderBeerTwo() {
-    let beerNameTwo = document.querySelector("#cardThree p")
-    beerNameTwo.textContent = beerData[0][1].name
-    console.log(beerData[0][1].name)
-}
-
-
-
 // Displays general weather information for chosen park.
 function displayWeather(weatherData) {
     var weatherCard = document.querySelector("#weatherCard");
     var content = weatherCard.querySelector(".content");
     content.innerHTML = "<p>" + weatherData + "</p>";
 }
-
 
 
 // Reset Button clears search bar field.
@@ -130,10 +112,10 @@ resetButton.addEventListener("click", function () {
     inputField.value = "";
 
     const cardContent = document.querySelector("#cardOne .content");
-    cardContent.innerHTML = "Search Somethin :)";
+    cardContent.innerHTML = "Search Something :)";
 
     const weatherContent = document.querySelector("#weatherCard .content");
-    weatherContent.innerHTML = "Search Somethin :)";
+    weatherContent.innerHTML = "Search Something :)";
 
     const cardImage = document.querySelector(".card-image img");
     cardImage.src = "https://64.media.tumblr.com/tumblr_lvgbgeaoff1r03kk7o1_500.jpg";
@@ -142,7 +124,6 @@ resetButton.addEventListener("click", function () {
    localStorage.clear();
    btnContainer.innerHTML = "";
 });
-
 
 
 // Creates buttons based on search history.
@@ -160,7 +141,47 @@ function renderButtons(arr) {
             getCity(cityIn)
         })
         btnContainer.appendChild(newBtn);
-    }
+    }}
+
+function getRandomImg() {
+    let myImgSrc;
+    
+    const myImageLibraryPath = 'assets/img/';
+    const myImageLibrary = ['beer1.jpg','beer2.jpg','beer3.jpg','beer4.jpg','beer5.jpg','beer6.jpg','beer7.jpg','beer8.jpg','beer9.jpg','beer10.jpg'];
+    let myImage = myImageLibrary[Math.floor(Math.random() * myImageLibrary.length)];
+    myImgSrc = `${myImageLibraryPath}${myImage}`;
+    return myImgSrc;
+}
+
+function renderBeerOne() {
+    const beerNameOne = document.querySelector("#cardTwo p")
+    const myImgSrc = document.querySelector('#cardTwo figure')
+    myImage = getRandomImg();
+    console.log(myImage)
+    myImgSrc.innerHTML= `<img src="${myImage}" alt="Card 2">`;
+    beerNameOne.textContent = `${beerData[0][0].name}, 
+    ${beerData[0][0].street},
+    ${beerData[0][0].city},
+    ${beerData[0][0].state},
+    `
+    document.querySelector("#cardTwo a").setAttribute("href",`${beerData[0][0].website_url}`)
+    
+    console.log(beerData[0][0])
+}
+
+function renderBeerTwo() {
+    let beerNameTwo = document.querySelector("#cardThree p")
+    const myImgSrc = document.querySelector('#cardThree figure')
+    myImage = getRandomImg();
+    myImgSrc.innerHTML= `<img src="${myImage}" alt="Card 3">`;
+    beerNameTwo.textContent = `${beerData[0][1].name}, 
+    ${beerData[0][0].street},
+    ${beerData[0][0].city},
+    ${beerData[0][0].state},
+
+    `
+    document.querySelector("#cardThree a").setAttribute("href",`${beerData[0][1].website_url}`)
+
 }
 
 
@@ -174,3 +195,5 @@ document.getElementById("applyButton").addEventListener("click", function (e) {
     renderButtons(historyArr)
     getCity(cityIn)
 })
+
+
