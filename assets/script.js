@@ -131,14 +131,7 @@ resetButton.addEventListener("click", function () {
 
     const cardContent = document.querySelector("#cardOne .content");
     cardContent.innerHTML = "";
-
-    //const cardTwoContent = document.querySelector("#cardTwo .content");
-    //cardTwoContent.innerHTML = "";
     
-
-    //const cardThreeContent = document.querySelector("#cardThree .content");
-    //cardThreeContent.innerHTML = "help";
-
     const weatherContent = document.querySelector("#weatherCard .content");
     weatherContent.innerHTML = "";
 
