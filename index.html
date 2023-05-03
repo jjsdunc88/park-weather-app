@@ -1,149 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
 <head>
-    <head>
-        <style>
-              body {
-      background-image: url('https://cdn.apartmenttherapy.info/image/upload/v1678906747/at/news-culture/2023-03/shutterstock_604451678.jpg');
-      background-size: cover;
-      background-position: center center;
-      background-repeat: repeat;
-    }
-        </style>
-      </head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Park & Brew Finder</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <head>
+    <style>
+      body {
+        background-image: url('https://cdn.apartmenttherapy.info/image/upload/v1678906747/at/news-culture/2023-03/shutterstock_604451678.jpg');
+        background-size: cover;
+        background-position: center center;
+        background-repeat: repeat;
+      }
+    </style>
+  </head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Park & Brew Finder</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 </head>
+
 <body>
-    <h1 class="is-size-1 py-6 title has-text-left has-text-warning-dark">Park & Brew Finder</h1>
+  <h1 class="is-size-1 py-6 title has-text-left has-text-warning-dark">Park & Brew Finder</h1>
 
-    <body>
-      <!-- Search bar -->
-        <div id="searchBarDiv" class="container">
-          <div class="field mr-auto">
-            <div class="control">
-              <input id="searchBar" class="input" type="text" placeholder="Enter State Initials">
-              <button id="applyButton" class="button is-dark">Apply</button>
-              <button id="resetButton" class="button is-outlined">Reset</button>
-            </div>
-          </div>
+  <body>
+    <!-- Search bar -->
+    <div id="searchBarDiv" class="container">
+      <div class="field mr-auto">
+        <div class="control">
+          <input id="searchBar" class="input" type="text" placeholder="Enter State Initials">
+          <button id="applyButton" class="button is-dark">Apply</button>
+          <button id="resetButton" class="button is-outlined">Reset</button>
+        </div>
+      </div>
 
-          <!-- Zip code -->
-          <!-- <button id="zipCode" class="button" title="Disabled button" disabled>Zip Code</button> -->
 
-          <!-- Activity bar -->
-          <div id="statusBar" class="dropdown is-hoverable pb-4 pl-3">
-            <div class="dropdown-trigger">
-              <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
-                <span>Filter by Activity...</span>
-                <span class="icon is-small">
-                  <i class="fas fa-angle-down" aria-hidden="true"></i>
-                </span>
-              </button>
-            </div>
-            <div class="dropdown-menu" id="dropdown-menu4" role="menu">
-              <div class="dropdown-content">
-                <div class="dropdown-item">
-                  <p>You can insert <strong>any type of content</strong> within the dropdown menu.</p>
-                </div>
-              </div>
-            </div>
-          </div>
+      <!-- Status bar -->
+      <div id="statusBar" class="dropdown is-hoverable pb-4 pl-3">
 
-          <!-- Status bar -->
-          <div id="statusBar" class="dropdown is-hoverable pb-4 pl-3">
-    
-          </div>
+      </div>
 
-          
-          <!-- Card container -->
-          <div id="dataCards" class="columns">
-            <!-- Card 1 -->
-            <div hidden id="cardOne" class="column hideCard" >
-              <div class="card is-size-1-mobile">
-                <div class="card-image">
-                  <figure class="image is-4by3">
-                    <img src="https://www.visitphilly.com/wp-content/uploads/2017/12/SchuylkillRiverPark_M.Edlow02-900vp.jpg" alt="Card 1">
-                  </figure>
-                </div>
-                <div class="card-content">
-                  <div class="content">
-                    <p> </p>
-                    <button class="button is-focused">Website</button>
-                  </div>
-                </div>
-              </div>
+
+      <!-- Card container -->
+      <div id="dataCards" class="columns">
+        <!-- Card 1 -->
+        <div hidden id="cardOne" class="column hideCard">
+          <div class="card is-size-1-mobile">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img
+                  src="https://www.visitphilly.com/wp-content/uploads/2017/12/SchuylkillRiverPark_M.Edlow02-900vp.jpg"
+                  alt="Card 1">
+              </figure>
             </div>
-      
-            <!-- Card 2 -->
-            <div hidden id="cardTwo" class="column hideCard">
-              <div class="card is-size-1-mobile">
-                <div class="card-image">
-                  <figure id="cardTwo" class="image is-4by3">   
-                    <img id="imgTwo" src="https://via.placeholder.com/300" alt="Card 2">
-                  </figure>
-                </div>
-                <div class="card-content">
-                  <div class="content">
-                    <p></p>
-                    <button class="button is-focused"> <a href="">Website</a></button>
-                  </div>
-                </div>
-              </div>
-            </div>
-      
-            <!-- Card 3 -->
-            <div hidden id="cardThree" class="column hideCard">
-              <div class="card is-size-1-mobile">
-                <div class="card-image">
-                  <figure class="image is-4by3">
-                    <img id="imgThree" src="https://via.placeholder.com/300" alt="Card 3">
-                  </figure>
-                </div>
-                <div class="card-content">
-                  <div class="content">
-                    <p></p>
-                    <button class="button is-focused"> <a href="">Website</a></button>
-                  </div>
-                </div>
+            <div class="card-content">
+              <div class="content">
+                <p> </p>
+                <button class="button is-focused">Website</button>
               </div>
             </div>
           </div>
         </div>
-      </body>
 
- <!-- Weather Forecast -->
-<div id="weatherCard" class="columns is-centered">
-  <div class="column is-4">
-    <div class="card has-background-white is-size-1-mobile">
-      <div class="card-content">
-        <div class="content">
-          <h2 id="city"></h2>
-          <img src="" alt="" id="weather-icon">
-          <p id="weather-description"></p>
-          <p id="temperature"></p>
-          <p id="feels-like"></p>
+        <!-- Card 2 -->
+        <div hidden id="cardTwo" class="column hideCard">
+          <div class="card is-size-1-mobile">
+            <div class="card-image">
+              <figure id="cardTwo" class="image is-4by3">
+                <img id="imgTwo" src="https://via.placeholder.com/300" alt="Card 2">
+              </figure>
+            </div>
+            <div class="card-content">
+              <div class="content">
+                <p></p>
+                <button class="button is-focused"> <a href="">Website</a></button>
+              </div>
+            </div>
+          </div>
         </div>
-        <style>
-        </style>
+
+        <!-- Card 3 -->
+        <div hidden id="cardThree" class="column hideCard">
+          <div class="card is-size-1-mobile">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img id="imgThree" src="https://via.placeholder.com/300" alt="Card 3">
+              </figure>
+            </div>
+            <div class="card-content">
+              <div class="content">
+                <p></p>
+                <button class="button is-focused"> <a href="">Website</a></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <!-- Weather Forecast -->
+  <div id="weatherCard" class="columns is-centered">
+    <div class="column is-4">
+      <div class="card has-background-white is-size-1-mobile">
+        <div class="card-content">
+          <div class="content">
+            <h2 id="city"></h2>
+            <img src="" alt="" id="weather-icon">
+            <p id="weather-description"></p>
+            <p id="temperature"></p>
+            <p id="feels-like"></p>
+          </div>
+          <style>
+          </style>
+        </div>
       </div>
     </div>
   </div>
-</div>
-            <footer class="footer px-0 py-3">
-              <div class="content has-text-centered">
-                <p>
-                  <strong>APIs</strong> by <a href="https://www.openbrewerydb.org/">Open Brewery DB</a>. <a href="https://www.nps.gov/subjects/developer/api-documentation.htm">National Park Service</a>. The source code is licensed
-                  <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
-                  is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>. Check out the collaborators on <a href="https://github.com/jjsdunc88/park-weather-app">GitHub!</a> 
-                </p>
-              </div>
-            </div>   
+  <footer class="footer px-0 py-3">
+    <div class="content has-text-centered">
+      <p>
+        <strong>APIs</strong> by <a href="https://www.openbrewerydb.org/">Open Brewery DB</a>. <a
+          href="https://www.nps.gov/subjects/developer/api-documentation.htm">National Park Service</a>. The source code
+        is licensed
+        <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+        is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>. Check out the
+        collaborators on <a href="https://github.com/jjsdunc88/park-weather-app">GitHub!</a>
+      </p>
+    </div>
+    </div>
     <script src="./assets/script.js"></script>
 </body>
+
 </html>

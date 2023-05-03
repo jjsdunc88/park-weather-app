@@ -110,10 +110,10 @@ resetButton.addEventListener("click", function () {
     inputField.value = "";
 
     const cardContent = document.querySelector("#cardOne .content");
-    cardContent.innerHTML = "Search Something :)";
+    cardContent.innerHTML = "Search something!";
 
     const weatherContent = document.querySelector("#weatherCard .content");
-    weatherContent.innerHTML = "Search Something :)";
+    weatherContent.innerHTML = "It's a beautiful day!";
 
     const cardImage = document.querySelector(".card-image img");
     cardImage.src = "https://64.media.tumblr.com/tumblr_lvgbgeaoff1r03kk7o1_500.jpg";
