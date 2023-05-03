@@ -49,6 +49,7 @@ var beerData  = []
 
 // Returns Brewery locations by latitude & longitude, runs Beer Card render functions.
 function getBeer() {
+    beerData = [];
     var url = `https://api.openbrewerydb.org/v1/breweries?by_dist=${lat},${lon}&per_page=2`
     fetch(url)
         .then(function (response) {
@@ -119,6 +120,7 @@ resetButton.addEventListener("click", function () {
 
    localStorage.removeItem("history")
    localStorage.clear();
+   historyArr = [];
    btnContainer.innerHTML = "";
 });
 
@@ -151,7 +153,10 @@ function getRandomImg() {
 }
 
 function renderBeerOne() {
+    
+    
     const beerNameOne = document.querySelector("#cardTwo p")
+    beerNameOne.textContent = "";
     const myImgSrc = document.querySelector('#cardTwo figure')
     myImage = getRandomImg();
     console.log(myImage)
@@ -167,7 +172,9 @@ function renderBeerOne() {
 }
 
 function renderBeerTwo() {
+   
     let beerNameTwo = document.querySelector("#cardThree p")
+    beerNameTwo.textContent = "";
     const myImgSrc = document.querySelector('#cardThree figure')
     myImage = getRandomImg();
     myImgSrc.innerHTML= `<img src="${myImage}" alt="Card 3">`;
