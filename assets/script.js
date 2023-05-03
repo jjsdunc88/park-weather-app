@@ -182,7 +182,7 @@ function renderBeerTwo() {
     `
     document.querySelector("#cardThree a").setAttribute("href",`${beerData[0][1].website_url}`)
 
-    console.log(beerData[0][1])
+
 }
 
 
