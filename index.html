@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 <head>
     <head>
         <style>
               body {
-      background-image: url('https://www.treehugger.com/thmb/2kYXj4KXChrqntcrQ_Xks0qIcLw=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/8860298334_509c5f9698_o-2fba9e1a26cc465bb9d4f9b659b2296d.jpg');
+      background-image: url('https://cdn.apartmenttherapy.info/image/upload/v1678906747/at/news-culture/2023-03/shutterstock_604451678.jpg');
       background-size: cover;
       background-position: center center;
-      background-repeat: no-repeat;
+      background-repeat: repeat;
     }
         </style>
       </head>
@@ -17,10 +18,9 @@
 
     <title>Park & Brew Finder</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
-    <h1 class="is-size-1 py-6 title has-text-centered has-text-warning-dark">Park & Brew Finder</h1>
+    <h1 class="is-size-1 py-6 title has-text-left has-text-warning-dark">Park & Brew Finder</h1>
 
     <body>
       <!-- Search bar -->
@@ -100,12 +100,12 @@
               <div class="card is-size-1-mobile">
                 <div class="card-image">
                   <figure class="image is-4by3">
-                    <img src="https://via.placeholder.com/300" alt="Card 1">
+                    <img src="https://www.visitphilly.com/wp-content/uploads/2017/12/SchuylkillRiverPark_M.Edlow02-900vp.jpg" alt="Card 1">
                   </figure>
                 </div>
                 <div class="card-content">
                   <div class="content">
-                    <p>Card 1 content goes here.</p>
+                    <p> </p>
                     <button class="button is-focused">Details</button>
                   </div>
                 </div>
@@ -122,7 +122,7 @@
                 </div>
                 <div class="card-content">
                   <div class="content">
-                    <p>Card 2 content goes here.</p>
+                   <p> </p>
                     <button class="button is-focused">Details</button>
                   </div>
                 </div>
@@ -139,7 +139,7 @@
                 </div>
                 <div class="card-content">
                   <div class="content">
-                    <p>Card 3 content goes here.</p>
+                    <p> </p>
                     <button class="button is-focused">Details</button>
                   </div>
                 </div>
@@ -149,17 +149,31 @@
         </div>
       </body>
 
-            <!-- Weather Forecast -->
-            <div id="weatherCard" class="columns is-centered">
-                <div class="column is-4">
-                  <div class="card is-size-1-mobile">
-                    <div class="card-content">
-                      <div class="content">
-                        <p>Weather content goes here.</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+ <!-- Weather Forecast -->
+<div id="weatherCard" class="columns is-centered">
+  <div class="column is-4">
+    <div class="card has-background-white is-size-1-mobile">
+      <div class="card-content">
+        <div class="content">
+          <h2 id="city"></h2>
+          <img src="" alt="" id="weather-icon">
+          <p id="weather-description"></p>
+          <p id="temperature"></p>
+          <p id="feels-like"></p>
+        </div>
+        <style>
+        </style>
+      </div>
+    </div>
+  </div>
+</div>
+            <footer class="footer px-0 py-3">
+              <div class="content has-text-centered">
+                <p>
+                  <strong>APIs</strong> by <a href="https://www.openbrewerydb.org/">Open Brewery DB</a>. <a href="https://www.nps.gov/subjects/developer/api-documentation.htm">National Park Service</a>. The source code is licensed
+                  <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+                  is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>. Check out the collaborators on <a href="https://github.com/jjsdunc88/park-weather-app">GitHub!</a> 
+                </p>
               </div>
             </div>   
     <script src="./assets/script.js"></script>

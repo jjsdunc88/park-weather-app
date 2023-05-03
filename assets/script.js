@@ -41,6 +41,7 @@ function getCity() {
             displayWeather(randomPark.weatherInfo);
             getBeer(lat, lon);
         })
+        
 };
 
 
