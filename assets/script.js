@@ -122,20 +122,24 @@ function displayWeather(weatherData) {
 
 
 
-// Reset Button clears search bar field.
+// Reset Button clears search bar and card content field.
 const resetButton = document.querySelector("#resetButton");
 resetButton.addEventListener("click", function () {
     const inputField = document.querySelector(".input");
     inputField.value = "";
 
     const cardContent = document.querySelector("#cardOne .content");
-    cardContent.innerHTML = "Search Somethin :)";
+    cardContent.innerHTML = "";
+
+    //const cardTwoContent = document.querySelector("#cardTwo .content");
+    //cardTwoContent.innerHTML = "";
+    
+
+    //const cardThreeContent = document.querySelector("#cardThree .content");
+    //cardThreeContent.innerHTML = "help";
 
     const weatherContent = document.querySelector("#weatherCard .content");
-    weatherContent.innerHTML = "Search Somethin :)";
-
-    const cardImage = document.querySelector(".card-image img");
-    cardImage.src = "https://64.media.tumblr.com/tumblr_lvgbgeaoff1r03kk7o1_500.jpg";
+    weatherContent.innerHTML = "";
 
    localStorage.removeItem("history")
    localStorage.clear();
