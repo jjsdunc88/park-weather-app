@@ -13,7 +13,7 @@ In the future, some features we'd like to implement would be additional search p
 
 ## Usage
 
-![Page Display](./assets/deployedss.png)
+![Page Display](./assets/deployedpage.gif)
 
 [Click here for live website](https://jjsdunc88.github.io/park-weather-app/)
 
