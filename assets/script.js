@@ -97,31 +97,12 @@ let randomPictureTwo = document.querySelector("#imgThree");
   randomPictureTwo.src = `${picArray[randomIndexTwo]}`;
 
 
-
-
-// Renders Brewery One info on Card Two.
-function renderBeerOne() {
-    let beerNameOne = document.querySelector("#cardTwo p")
-    beerNameOne.textContent = beerData[0][0].name
-    console.log(beerData[0][0].name)
-}
-
-// Renders Brewery Two info on Card Three.
-function renderBeerTwo() {
-    let beerNameTwo = document.querySelector("#cardThree p")
-    beerNameTwo.textContent = beerData[0][1].name
-    console.log(beerData[0][1].name)
-}
-
-
-
 // Displays general weather information for chosen park.
 function displayWeather(weatherData) {
     var weatherCard = document.querySelector("#weatherCard");
     var content = weatherCard.querySelector(".content");
     content.innerHTML = "<p>" + weatherData + "</p>";
 }
-
 
 
 // Reset Button clears search bar field.
@@ -143,7 +124,6 @@ resetButton.addEventListener("click", function () {
    localStorage.clear();
    btnContainer.innerHTML = "";
 });
-
 
 
 // Creates buttons based on search history.
@@ -179,7 +159,7 @@ function renderBeerOne() {
     myImage = getRandomImg();
     console.log(myImage)
     myImgSrc.innerHTML= `<img src="${myImage}" alt="Card 2">`;
-    beerNameOne.textContent = `${beerData[0][0].name}, apples
+    beerNameOne.textContent = `${beerData[0][0].name}, 
     ${beerData[0][0].street},
     ${beerData[0][0].city},
     ${beerData[0][0].state},
@@ -201,7 +181,6 @@ function renderBeerTwo() {
 
     `
     document.querySelector("#cardThree a").setAttribute("href",`${beerData[0][1].website_url}`)
-
 
 }
 
