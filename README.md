@@ -1,4 +1,4 @@
-# park-weather-app
+# park-brew-finder-app
 
 ## Description 
 
@@ -13,7 +13,7 @@ In the future, some features we'd like to implement would be additional search p
 
 ## Usage
 
-![Page Display]()
+![Page Display](./assets/deployedss.png)
 
 [Click here for live website](https://jjsdunc88.github.io/park-weather-app/)
 
