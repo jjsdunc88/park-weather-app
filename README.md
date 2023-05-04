@@ -39,7 +39,7 @@ TA Tom Woods
 
 Instructor Anthony Maddatu
 
-Shamus Field
+Sr. Developer Shamus Field
 
 [Myro Lee](https://github.com/myrojoylee)
 
