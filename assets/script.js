@@ -142,7 +142,7 @@ function getRandomImg() {
     let myImgSrc;
 
     const myImageLibraryPath = 'assets/img/';
-    const myImageLibrary = ['beer1.jpg', 'beer2.jpg', 'beer3.jpg', 'beer4.jpg', 'beer5.jpg', 'beer6.jpg', 'beer7.jpg', 'beer8.jpg', 'beer9.jpg', 'beer10.jpg'];
+    const myImageLibrary = ['beer1.jpg', 'beer2.jpg', 'beer3.jpg', 'beer4.jpg', 'beer5.jpg', 'beer6.jpg', 'beer7.jpg', 'beer8.jpg', 'beer9.jpg', 'beer10.jpg','beer11.jpg','beer12.jpg','beer13.jpg','beer14.jpg','beer15.jpg','beer16.jpg','beer17.jpg','beer18.jpg','beer19.jpg','beer20.jpg',];
     let myImage = myImageLibrary[Math.floor(Math.random() * myImageLibrary.length)];
     myImgSrc = `${myImageLibraryPath}${myImage}`;
     return myImgSrc;
