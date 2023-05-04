@@ -32,6 +32,11 @@ In the future, some features we'd like to implement would be additional search p
 ## Credits
 
 -BootCamp Tutor Andres Long
+-TA Andrew Read
+-TA Tom Woods
+-Instructor Anthony Maddatu
+-Shamus Field
+-[Myro Lee](https://github.com/myrojoylee)
 
 
 ## License
