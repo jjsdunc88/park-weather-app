@@ -13,7 +13,7 @@ In the future, some features we'd like to implement would be additional search p
 
 ## Usage
 
-![Page Display](./assets/deployedpage.gif)
+![Page Display](./assets/deployedss.png)
 
 [Click here for live website](https://jjsdunc88.github.io/park-weather-app/)
 
@@ -31,7 +31,17 @@ In the future, some features we'd like to implement would be additional search p
 
 ## Credits
 
--BootCamp Tutor Andres Long
+BootCamp Tutor Andres Long
+
+TA Andrew Read
+
+TA Tom Woods
+
+Instructor Anthony Maddatu
+
+Sr. Developer Shamus Field
+
+[Myro Lee](https://github.com/myrojoylee)
 
 
 ## License

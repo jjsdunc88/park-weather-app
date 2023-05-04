@@ -16,10 +16,8 @@ if (localStorage.getItem("history")) {
 renderButtons(historyArr);
 
 
-
 // Targets "Apply" button, runs getCity function on click.
 document.querySelector("#applyButton").addEventListener("click", getCity);
-
 
 
 // Returns a National Park based on State intials input and intiates other functions.
@@ -40,11 +38,7 @@ function getCity() {
             displayWeather(randomPark.weatherInfo);
             getBeer(lat, lon);
         })
-        
 };
-
-// Array to hold brewery data for each search.
-var beerData  = []
 
 
 // Returns Brewery locations by latitude & longitude, runs Beer Card render functions.
@@ -65,7 +59,7 @@ function getBeer() {
 };
 
 
-// Renders Park info on Card One.
+// Renders Park info on Card.
 function updateCard(randomPark) {
     var parkName = randomPark.fullName;
     var parkDescription = randomPark.description;
@@ -84,15 +78,15 @@ function updateCard(randomPark) {
 }
 
 // Loads a random picture onto beer cards.
-const picArray = ["./assets/brewimages/brewone.jpg","./assets/brewimages/brewtwo.jpg","./assets/brewimages/brewthree.jpg","./assets/brewimages/brewfour.jpg","./assets/brewimages/brewfive.jpg","./assets/brewimages/brewsix.jpg"];
-  
+const picArray = ["./assets/brewimages/brewone.jpg", "./assets/brewimages/brewtwo.jpg", "./assets/brewimages/brewthree.jpg", "./assets/brewimages/brewfour.jpg", "./assets/brewimages/brewfive.jpg", "./assets/brewimages/brewsix.jpg"];
+
 let randomPicture = document.querySelector("#imgTwo");
 let randomIndex = Math.floor(Math.random() * picArray.length);
 randomPicture.src = `${picArray[randomIndex]}`;
 
 let randomPictureTwo = document.querySelector("#imgThree");
-  let randomIndexTwo = Math.floor(Math.random() * picArray.length);
-  randomPictureTwo.src = `${picArray[randomIndexTwo]}`;
+let randomIndexTwo = Math.floor(Math.random() * picArray.length);
+randomPictureTwo.src = `${picArray[randomIndexTwo]}`;
 
 
 // Displays general weather information for chosen park.
@@ -118,16 +112,16 @@ resetButton.addEventListener("click", function () {
     const cardImage = document.querySelector(".card-image img");
     cardImage.src = "https://64.media.tumblr.com/tumblr_lvgbgeaoff1r03kk7o1_500.jpg";
 
-   localStorage.removeItem("history")
-   localStorage.clear();
-   historyArr = [];
-   btnContainer.innerHTML = "";
+    localStorage.removeItem("history")
+    localStorage.clear();
+    historyArr = [];
+    btnContainer.innerHTML = "";
 });
 
 
 // Creates buttons based on search history.
 function renderButtons(arr) {
-    
+
     btnContainer.innerHTML = "";
 
     for (i = 0; i < arr.length; i++) {
@@ -140,51 +134,54 @@ function renderButtons(arr) {
             getCity(cityIn)
         })
         btnContainer.appendChild(newBtn);
-    }}
+    }
+}
 
+// Selects random beer image from asset library     
 function getRandomImg() {
     let myImgSrc;
-    
+
     const myImageLibraryPath = 'assets/img/';
-    const myImageLibrary = ['beer1.jpg','beer2.jpg','beer3.jpg','beer4.jpg','beer5.jpg','beer6.jpg','beer7.jpg','beer8.jpg','beer9.jpg','beer10.jpg'];
+    const myImageLibrary = ['beer1.jpg', 'beer2.jpg', 'beer3.jpg', 'beer4.jpg', 'beer5.jpg', 'beer6.jpg', 'beer7.jpg', 'beer8.jpg', 'beer9.jpg', 'beer10.jpg'];
     let myImage = myImageLibrary[Math.floor(Math.random() * myImageLibrary.length)];
     myImgSrc = `${myImageLibraryPath}${myImage}`;
     return myImgSrc;
 }
 
+// Renders randomly generated beer image on card
 function renderBeerOne() {
-    
-    
+
     const beerNameOne = document.querySelector("#cardTwo p")
     beerNameOne.textContent = "";
     const myImgSrc = document.querySelector('#cardTwo figure')
     myImage = getRandomImg();
     console.log(myImage)
-    myImgSrc.innerHTML= `<img src="${myImage}" alt="Card 2">`;
+    myImgSrc.innerHTML = `<img src="${myImage}" alt="Card 2">`;
     beerNameOne.textContent = `${beerData[0][0].name}, 
     ${beerData[0][0].street},
     ${beerData[0][0].city},
     ${beerData[0][0].state},
     `
-    document.querySelector("#cardTwo a").setAttribute("href",`${beerData[0][0].website_url}`)
-    
+    document.querySelector("#cardTwo a").setAttribute("href", `${beerData[0][0].website_url}`)
+
     console.log(beerData[0][0])
 }
 
+// Renders randomly generated beer image on card
 function renderBeerTwo() {
-   
+
     let beerNameTwo = document.querySelector("#cardThree p")
     beerNameTwo.textContent = "";
     const myImgSrc = document.querySelector('#cardThree figure')
     myImage = getRandomImg();
-    myImgSrc.innerHTML= `<img src="${myImage}" alt="Card 3">`;
+    myImgSrc.innerHTML = `<img src="${myImage}" alt="Card 3">`;
     beerNameTwo.textContent = `${beerData[0][1].name}, 
     ${beerData[0][1].street},
     ${beerData[0][1].city},
     ${beerData[0][1].state},
 
     `
-    document.querySelector("#cardThree a").setAttribute("href",`${beerData[0][1].website_url}`)
+    document.querySelector("#cardThree a").setAttribute("href", `${beerData[0][1].website_url}`)
 
 }
 
